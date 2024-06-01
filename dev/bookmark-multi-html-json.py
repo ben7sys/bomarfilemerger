@@ -1,6 +1,13 @@
 import json
 import os
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+source_folder = os.getenv('SOURCE_FOLDER')
+destination_json = os.getenv('DESTINATION_JSON')
 
 # Function to preprocess the HTML content
 def preprocess_html(file_path):
@@ -103,6 +110,6 @@ def process_folder(source_folder, destination_json):
 
 # Example usage
 if __name__ == "__main__":
-    source_folder = r'C:\tmp\BookmarkExports'  # Adjust this path as needed
-    destination_json = r'C:\tmp\all_bookmarks.json'  # Adjust this path as needed
+    #source_folder = r'C:\tmp\BookmarkExports'  # Adjust this path as needed
+    #destination_json = r'C:\tmp\all_bookmarks.json'  # Adjust this path as needed
     process_folder(source_folder, destination_json)
