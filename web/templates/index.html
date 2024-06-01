@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookmark Converter</title>
+</head>
+<body>
+    <h1>Bookmark Converter</h1>
+    <form action="/convert" method="post" enctype="multipart/form-data">
+        <label for="file">Choose HTML file or directory:</label>
+        <input type="file" id="file" name="file" webkitdirectory directory multiple>
+        <button type="submit">Convert</button>
+    </form>
+</body>
+</html>
