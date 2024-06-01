@@ -1,3 +1,13 @@
+
+Erweitere die Webanwendung
+Convert your Bookmark.html file to a jsonfile
+Dateiauswahldialog: (Choose a file)
+Button: Upload
+Anzeige Log Fenster (Anzahl der Bookmarks, Erfolgreich/Fehlgeschlagen, Erroroutput)
+Button: Download
+
+---
+
 Wir haben nun die Möglichkeit eine HTML Datei in eine JSON zu konvertieren
 Ich möchte die funktionen des Scripts mit einem Flask Webinterface nutzen.
 
