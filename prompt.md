@@ -1,3 +1,59 @@
+Wir haben nun die Möglichkeit eine HTML Datei in eine JSON zu konvertieren
+Ich möchte die funktionen des Scripts mit einem Flask Webinterface nutzen.
+
+---
+
+Zusätzliche Informationen für dich:
+Nicht jede HTML Datei ist 100% gleich.
+Zum Beispiel haben manche HTML Dateien link rel stylesheets oder base64 strings zusätzlich.
+Dennoch sind H3 hierachisch über A Tags
+Es gibt immer einen H1 Tag
+unter dem H1 Tag befinden sich A und H3 und H3 und A
+A können ohne H3 existieren
+H3 haben manchmal keine A
+
+---
+
+Bereinige das Script.
+Der Export soll nur mit einer einzigen HTML Datei durchgeführt werden
+
+---
+
+Das Script läuft fehlerlos bis zum Ende. Das Ergebnis ist aber nicht korrekt. Leider werden keine Bookmarks extrahiert. Die JSON ist leer.
+
+---
+
+Die Gruppennamen (<H3>) fehlen.
+Das Script soll die zugehörigen H3 Tags den den Elementen in der JSON hinzufügen.
+Jeder Link erhält zusätzlich die zugehörige Überschrift <H3>
+
+Die A Tags sind nicht immer direkte Child-Elemente.
+
+Hier ist ein Schematisches Beispiel für den Aufbau der Import HTML:
+```
+<!DOCTYPE NETSCAPE-Bookmark-file-1>
+<META>
+<TITLE>Bookmarks</TITLE>
+<H1>Bookmarks</H1>
+
+<DL><p><DT><H3>Toolbar Folder</H3><DL><p></DL>
+    <p><DT><A>Link Description</A>
+        <DT><H3>Folder 1</H3>
+        <DL><p><DT><A>Link Description</A></DL>
+            <p><DT><A>Link Description</A>
+               <DT><A>Link Description</A>
+               <DT><H3>Folder 2</H3>
+                    <DL><p><DT><H3>Subfolder 1</H3>
+                        <DL><p><DT><A>Link Description</A>
+                            <DT><A>Link Description</A></DL><p></DL><p></DL><p></DL>
+```
+
+2. Möglichkeit:
+Die JSON Datei so strukturieren dass die Links child-elemente der Folders sind.
+
+
+---
+
 Improve the python script.
 Add the missing Elements.
 
@@ -11,8 +67,8 @@ TAGS
 ICON_URI
 LAST_CHARSET
 
-
-
+Script:
+bookmark-html-merge-json.py
 
 ---
 

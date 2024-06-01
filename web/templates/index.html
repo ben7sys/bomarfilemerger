@@ -1,15 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Bookmark Converter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload HTML File</title>
+    <style>
+        .log {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: scroll;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bookmark Converter</h1>
-    <form action="/convert" method="post" enctype="multipart/form-data">
-        <label for="file">Choose HTML file or directory:</label>
-        <input type="file" id="file" name="file" webkitdirectory directory multiple>
-        <button type="submit">Convert</button>
+    <h1>Convert your Bookmark.html file to a JSON file</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label for="file">File:</label>
+        <input type="file" name="file" id="file">
+        <input type="submit" value="Upload">
     </form>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    {% if success %}
+        <div class="log">
+            <p>Number of bookmarks: {{ num_bookmarks }}</p>
+            <p>Details:</p>
+            <ul>
+            </ul>
+        </div>
+    {% elif error %}
+        <div class="log error">
+            <p>Error: {{ error }}</p>
+        </div>
+    {% endif %}
 </body>
 </html>
