@@ -1,7 +1,6 @@
 # Task
 Create a python script code base. 
 Convert a bookmark file into a structured json file.
-Ignore Folders, only convert links.
 The source and destination should be a variable.
 
 ## HTML Structure:
