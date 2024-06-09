@@ -3,6 +3,19 @@ from bs4 import BeautifulSoup
 import os
 from glob import glob
 
+"""
+This Python script converts HTML bookmarks to JSON. It imports `json`, `BeautifulSoup`, `os`, and `glob`.
+
+- `preprocess_html`: Reads HTML with various encodings, replaces non-breaking spaces.
+- `extract_bookmarks`: Uses BeautifulSoup to find `<a>` tags, extracts attributes like `href`, `text`, `icon`, `add_date`, and `last_modified`.
+- `convert_single_html_to_json`: Processes a single HTML file.
+- `convert_directory_to_json`: Processes all HTML files in a directory.
+- `write_bookmarks_to_json`: Saves bookmarks to JSON, prints counts of bookmarks, files, and folders.
+
+The `main` function processes input as a directory or file and calls the appropriate functions. Example usage specifies source and destination paths.
+"""
+
+
 # Function to preprocess the HTML content
 def preprocess_html(file_path):
     encodings = ['utf-8', 'iso-8859-1', 'latin1']  # Add more encodings if needed
